@@ -58,7 +58,7 @@ When adding new domains, controllers, services, and views, create them in the fo
 
 **Important:** All methods must be present in each file when first saved. Adding methods to existing classes after the initial save requires a server restart.
 
-**Note:** The `generate-all` command currently creates controllers before services, which may require manual reordering to follow the correct sequence.
+**Note:** The `generate-all` command currently creates controllers before services, which requires a server restart, since the controller fails to compile due to missing service methods.
 
 ### Limitations
 
