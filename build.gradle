@@ -76,13 +76,6 @@ java {
     }
 }
 
-bootRun {
-    jvmArgs = [
-            '-Xdebug',
-            '-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005'
-    ]
-}
-
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
