@@ -1,27 +1,35 @@
-## IntelliJ IDEA Enhanced HotSwap in the Debugger Configuration
+## IntelliJ IDEA Enhanced HotSwap in Debug Mode
 
-To enable hot-swapping and automatic recompilation in your Grails project:
+This guide explains how to configure and use IntelliJ IDEA's HotSwap feature for rapid development with your Grails project. HotSwap allows you to modify code and see changes immediately without restarting the server.
 
-### 1. Build project before reloading classes
-- Go to **Settings/Preferences > Build, Execution, Deployment > Debugger > HotSwap**
-- Check **"Build project before reloading classes"**
-- Set **"Reload classes after compilation"** to **"Always"**
-- Check **"Enable hot-swap agent for Groovy code"**
+### 1. Configure HotSwap Settings
 
-### 2. Use Gradle as build tool
-- Go to **Settings/Preferences > Build, Execution, Deployment > Build Tools > Gradle**
-- Set **"Build and run using"** to **"Gradle"**
-- Set **"Run tests using"** to **"Gradle"**
+Navigate to **Settings/Preferences > Build, Execution, Deployment > Debugger > HotSwap** and configure:
 
-### 3. Enable compiler auto-build
-- Go to **Settings/Preferences > Build, Execution, Deployment > Compiler**
-- Check **"Build project automatically"**
+- Check **"Build project before reloading classes"** - Ensures code is compiled before hot-swapping
+- Set **"Reload classes after compilation"** to **"Always"** - Automatically applies changes after compilation
+- Check **"Enable hot-swap agent for Groovy code"** - Required for Groovy/Grails hot-swapping support
 
-### 4. Run bootRun task in debug mode from IntelliJ 
+### 2. Configure Gradle as Build Tool
+
+Navigate to **Settings/Preferences > Build, Execution, Deployment > Build Tools > Gradle** and set:
+
+- **"Build and run using"** to **"Gradle"** - Uses Gradle for building the project
+- **"Run tests using"** to **"Gradle"** - Uses Gradle for test execution
+
+### 3. Enable Automatic Compilation
+
+Navigate to **Settings/Preferences > Build, Execution, Deployment > Compiler** and:
+
+- Check **"Build project automatically"** - Enables background compilation when files are modified
+
+### 4. Run the bootRun Task in Debug Mode
+
+Launch the Gradle `bootRun` task in debug mode using any of these methods:
 
 ![img_2.png](img_2.png)
 
-**or** 
+**or**
 
 ![img_1.png](img_1.png)
 
@@ -29,25 +37,44 @@ To enable hot-swapping and automatic recompilation in your Grails project:
 
 ![img_4.png](img_4.png)
 
-### 5. Edit existing method on a controller or service
+### 5. Edit Existing Methods
 
-- After editing, there will be a prompt to Apply HotSwap Changes
-- Refresh browser to see changes
+You can modify existing methods in controllers or services while debugging:
+
+- After editing and saving, IntelliJ will prompt you to **Apply HotSwap Changes**
+- Click the prompt to reload the modified classes
+- Refresh your browser to see the changes reflected immediately
 
 ![img_5.png](img_5.png)
 
-### 6. Adding a new Domain, Controller, Service and Views
+### 6. Adding New Components
 
-Will work as long as added in the right order: Domain, Service, Controller, then Views and all methods are present the first time saved
+When adding new domains, controllers, services, and views, create them in the following order:
 
-### Adding methods not supported
+1. **Domain** - Define your domain model first
+2. **Service** - Create services that use the domain
+3. **Controller** - Create controllers that use the services
+4. **Views** - Add corresponding GSP views
+
+**Important:** All methods must be present in each file when first saved. Adding methods to existing classes after the initial save requires a server restart.
+
+**Note:** The `generate-all` command currently creates controllers before services, which may require manual reordering to follow the correct sequence.
+
+### Limitations
+
+#### Adding Methods Not Supported
+
+Adding new methods to existing classes after initial creation requires a full server restart:
 
 ![img_7.png](img_7.png)
 
-### Domain changes are not supported, but it's one click to restart the server
+#### Domain Changes Require Restart
 
-Contsraints changes are not applied without a restart
+Domain class modifications are not supported by HotSwap and require a server restart:
 
-Field/Schema changes will display a nice restart dialog
+- **Constraint changes** - Not applied without restart
+- **Field/Schema changes** - IntelliJ will display a restart dialog when detected
 
 ![img_6.png](img_6.png)
+
+**Tip:** Restarting the server is quick and can be done with a single click from the IntelliJ debug toolbar.
