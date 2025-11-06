@@ -5,7 +5,6 @@ class Test {
     String firstName
     String lastName
     Integer age
-    Integer gradYear
 
     static constraints = {
         firstName nullable: false, blank: false
