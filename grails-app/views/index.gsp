@@ -23,6 +23,8 @@
             </li>
             <li><a class="dropdown-item" href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
             <li><a class="dropdown-item" href="#">JVM version: ${System.getProperty('java.version')}</a></li>
+            <li><a class="dropdown-item" href="#">JVM implementation version: ${System.getProperty('java.vm.version')}</a></li>
+            <li><a class="dropdown-item" href="#">JVM vendor: ${System.getProperty('java.vendor')}</a></li>
             <li><a class="dropdown-item" href="#">Spring Boot version: ${SpringBootVersion.getVersion()}</a></li>
             <li><a class="dropdown-item" href="#">Spring version: ${SpringVersion.getVersion()}</a></li>
             <li><hr class="dropdown-divider"></li>
