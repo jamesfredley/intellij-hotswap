@@ -76,6 +76,10 @@ java {
     }
 }
 
+tasks.named('bootRun') {
+    jvmArgs '-XX:+AllowEnhancedClassRedefinition'
+}
+
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
