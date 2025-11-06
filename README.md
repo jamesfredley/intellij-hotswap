@@ -1,25 +1,18 @@
-## Grails 7.0.1 Documentation
+## IntelliJ IDEA Hot-Swapping Configuration
 
-- [User Guide](https://grails.apache.org/docs/7.0.1/guide/index.html)
-- [API Reference](https://grails.apache.org/docs/7.0.1/api/index.html)
-- [Grails Guides](https://guides.grails.org/index.html)
----
+To enable hot-swapping and automatic recompilation in your Grails project:
 
-## Feature geb-with-testcontainers documentation
+### 1. Build project before reloading classes
+- Go to **Settings/Preferences > Build, Execution, Deployment > Debugger > HotSwap**
+- Check **"Build project before reloading classes"**
+- Set **"Reload classes after compilation"** to **"Always"**
+- Check **"Enable hot-swap agent for Groovy code"**
 
-- [Grails Geb Functional Testing for Grails with Testcontainers documentation](https://github.com/apache/grails-geb#readme)
+### 2. Use Gradle as build tool
+- Go to **Settings/Preferences > Build, Execution, Deployment > Build Tools > Gradle**
+- Set **"Build and run using"** to **"Gradle"**
+- Set **"Run tests using"** to **"Gradle"**
 
-- [https://groovy.apache.org/geb/manual/current/](https://groovy.apache.org/geb/manual/current/)
-
-## Feature scaffolding documentation
-
-- [Grails Scaffolding documentation](https://grails.apache.org/docs/7.0.1/guide/scaffolding.html)
-
-## Feature spring-boot-devtools documentation
-
-- [Grails SpringBoot Developer Tools documentation](https://docs.spring.io/spring-boot/reference/using/devtools.html)
-
-## Feature asset-pipeline-grails documentation
-
-- [Grails Asset Pipeline documentation](https://github.com/wondrify/asset-pipeline#readme)
-
+### 3. Enable compiler auto-build (optional but recommended)
+- Go to **Settings/Preferences > Build, Execution, Deployment > Compiler**
+- Check **"Build project automatically"**
