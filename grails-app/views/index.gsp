@@ -26,6 +26,7 @@
             <li><a class="dropdown-item" href="#">JVM implementation version: ${System.getProperty('java.vm.version')}</a></li>
             <li><a class="dropdown-item" href="#">JVM vendor: ${System.getProperty('java.vendor')}</a></li>
             <li><a class="dropdown-item" href="#">Debug mode: ${java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().contains('jdwp') ? 'Enabled' : 'Disabled'}</a></li>
+            <li><a class="dropdown-item" href="#">Enhanced class redefinition: ${java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().contains('AllowEnhancedClassRedefinition') ? 'Enabled' : 'Disabled'}</a></li>
             <li><a class="dropdown-item" href="#">Spring Boot version: ${SpringBootVersion.getVersion()}</a></li>
             <li><a class="dropdown-item" href="#">Spring version: ${SpringVersion.getVersion()}</a></li>
             <li><hr class="dropdown-divider"></li>
