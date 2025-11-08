@@ -62,6 +62,8 @@ When adding new domains, controllers, services, and views, create them in the fo
 
 ### Limitations
 
+Using Jetbrains' Runtime and jvmArgs `-XX:+AllowEnhancedClassRedefinition` overcomes some of these limitations.
+
 #### Adding Methods Not Supported
 
 Adding new methods to existing classes after initial creation requires a full server restart:
